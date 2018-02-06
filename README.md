@@ -21,7 +21,7 @@ const reducer = (state = { counter: 0 }, action) => {
 
 Althought the above pattern serves rudimentary cases, as an application grows, a single reducer or middleware can handle several actions. It is important to note in these situations that switch statements do not create a new scope per case or even within the entire statement. This can lead to unexpected behaviour due to collisions between each case. This library attempts to provide simple factories to avoid this issue without extensive boilerplate code. By assigning each action an independent handler function, the developer can safely assume that the scope of the handler will not be polluted by other handlers within the same reducer or middleware. 
 
-The switch statement pattern also provides a solution for default behaviour such as the initial state and handling of unhandled actions. However, an extensive initial state can be onerous on the function definition as a default parameter and the default hanlder can further collide with other handlers within the same reducer or middleware function. This library provides sensitive defaults for this behaviour. In the case of the initial state, an empty object is provided. The reducer's default handler returns the current state and the middleware's default handler returns the result of the next function with the current action as an argument. However, the developer can further alter this behaviour by providing overrides as the second argument. See usage for more details.
+The switch statement pattern also provides a solution for default behaviour such as the initial state and handling of unhandled actions. However, an extensive initial state can be onerous on the function definition as a default parameter and the default handler can further collide with other handlers within the same reducer or middleware function. This library provides sensitive defaults for this behaviour. In the case of the initial state, an empty object is provided. The reducer's default handler returns the current state and the middleware's default handler returns the result of the next function with the current action as an argument. However, the developer can further alter this behaviour by providing overrides as the second argument. See usage for more details.
 
 ### Installation
 
@@ -41,6 +41,7 @@ Both factories follow a similar interface. An object containing the action handl
 In relation to the `reducerFactory`, a second argument can be provided as an object containing the following keys:
 - `initialState`: The initial state for the reducer
 - `defaultHandler`: An action handler for unmatched actions
+
 All functions provided to the reducer should satisfy the following signature:
 ```
 function actionHandler (state, action) { [return newState] }
@@ -73,7 +74,7 @@ const counterReducer = reducerFactory({
 
   [DECREMENT_BY]: (state, action) => {
     return Object.assign({}, state, {
-      counter: state.counter - action.paylod
+      counter: state.counter - action.payload
     })
   }
   
