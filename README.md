@@ -1,7 +1,19 @@
 # dead-simple-redux-factories
 A series of factory functions to cleanly implement the reducer and middleware patterns for Redux.
 
-### Description
+### Table of Contents
+* Introduction
+* Requirements
+* Recommended modules
+* Installation
+* Usage
+* Maintainers
+* Development
+* Contributing
+* License
+* Code of Conduct
+
+## Introduction
 Redux is a popular state-management solution for extracting state from React applications that emphasizes a uni-directional data flow and functional programming. A Redux reducer is a function that handles changes in state and should be a pure function. A Redux middleware is a function that handles unpredictable tasks and is not necessarily a pure function. Both reducers and middleware are called in response to the dispatch of an action by the Redux store and generally handle more than a single action. A common pattern to handle multiple actions in a single reducer or middleware function is the JS switch statement.
 
 ```
@@ -23,7 +35,16 @@ Althought the above pattern serves rudimentary cases, as an application grows, a
 
 The switch statement pattern also provides a solution for default behaviour such as the initial state and handling of unhandled actions. However, an extensive initial state can be onerous on the function definition as a default parameter and the default handler can further collide with other handlers within the same reducer or middleware function. This library provides sensitive defaults for this behaviour. In the case of the initial state, an empty object is provided. The reducer's default handler returns the current state and the middleware's default handler returns the result of the next function with the current action as an argument. However, the developer can further alter this behaviour by providing overrides as the second argument. See usage for more details.
 
-### Installation
+## Requirements
+- [Node 8.9.0+](https://nodejs.org/en/)
+
+## Recommended Modules
+This package was developed using [Yarn](https://yarnpkg.com/en/), an alternative to npm.
+The following are necessary to run the test suite.
+
+- [Jest](https://github.com/facebook/jest)
+
+## Installation
 
 ```
 yarn add dead-simple-redux-factories
@@ -35,7 +56,7 @@ or
 npm install --save dead-simple-redux-factories
 ```
 
-### Usage
+## Usage
 Both factories follow a similar interface. An object containing the action handlers is to be provided as the first argument.
 
 In relation to the `reducerFactory`, a second argument can be provided as an object containing the following keys:
@@ -119,3 +140,22 @@ const middleware = middlewareFactory({
   return next(action)
 })
 ```
+
+## Maintainers
+Solely maintained by Esteban Hernández. Open to contributions. Use freely at your own risk.
+
+## Development
+
+After checking out the repo, run `yarn install` to install dependencies. Then, run `yarn test` to run the tests.
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/LySofDev/dead-simple-redux-factories. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+The package is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the node-duplicate-directory project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/redux_gen/blob/master/CODE_OF_CONDUCT.md).d P
