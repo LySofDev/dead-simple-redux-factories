@@ -3,7 +3,7 @@
     "jest": "^22.2.1"
   },
   "name": "dead-simple-redux-factories",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "A series of factory functions to cleanly implement the reducer and middleware patterns for Redux. ",
   "main": "index.js",
   "repository": "https://github.com/LySofDev/dead-simple-redux-factories.git",
