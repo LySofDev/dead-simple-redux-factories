@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "jest": "^22.2.1"
+  },
+  "name": "dead-simple-redux-factories",
+  "version": "0.0.1",
+  "description": "A series of factory functions to cleanly implement the reducer and middleware patterns for Redux. ",
+  "main": "index.js",
+  "repository": "https://github.com/LySofDev/dead-simple-redux-factories.git",
+  "author": "Esteban Hernandez <hernandez.dev.services@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+	"test": "jest --watchAll"
+  }
+}
